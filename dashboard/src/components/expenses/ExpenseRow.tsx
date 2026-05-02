@@ -11,9 +11,13 @@ export function ExpenseRow({
   category: Category | undefined
   onDelete: (id: string) => void
 }) {
+  const categoryName = category?.name ?? 'Bez kategorii'
+  const dateText = formatDatePL(expense.date)
+  const amountText = formatCurrencyPLN(expense.amount)
+
   return (
     <tr>
-      <td className="cellDate">{formatDatePL(expense.date)}</td>
+      <td className="cellDate">{dateText}</td>
       <td className="cellCategory">
         <span className="categoryPill">
           <span
@@ -21,13 +25,18 @@ export function ExpenseRow({
             aria-hidden="true"
             style={{ background: category?.color ?? 'var(--border)' }}
           />
-          {category?.name ?? '—'}
+          {categoryName}
         </span>
       </td>
       <td className="cellNote">{expense.note?.trim() ? expense.note : '—'}</td>
-      <td className="cellAmount">{formatCurrencyPLN(expense.amount)}</td>
+      <td className="cellAmount">{amountText}</td>
       <td className="cellActions">
-        <button type="button" className="button buttonDanger" onClick={() => onDelete(expense.id)}>
+        <button
+          type="button"
+          className="button buttonDanger"
+          onClick={() => onDelete(expense.id)}
+          aria-label={`Usuń wydatek: ${categoryName}, ${amountText}, ${dateText}`}
+        >
           Usuń
         </button>
       </td>
