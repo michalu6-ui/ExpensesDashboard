@@ -10,13 +10,13 @@ todos:
     status: completed
   - id: ui-core
     content: Zbudować ExpenseForm i ExpenseTable podpięte do dispatch
-    status: in_progress
+    status: completed
   - id: charts
     content: Dodać komponenty wykresów z agregacjami w utils (useMemo)
-    status: pending
+    status: completed
   - id: persistence
     content: "Opcjonalnie: synchronizacja stanu z localStorage w Providerze"
-    status: pending
+    status: completed
 isProject: false
 ---
 
