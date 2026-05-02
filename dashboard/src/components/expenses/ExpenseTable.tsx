@@ -1,5 +1,5 @@
 import { CATEGORIES } from '../../data/categories'
-import { useExpenses } from '../../context/expenses'
+import { useExpenses } from '../../context/useExpenses'
 import { ExpenseRow } from './ExpenseRow'
 
 export function ExpenseTable() {

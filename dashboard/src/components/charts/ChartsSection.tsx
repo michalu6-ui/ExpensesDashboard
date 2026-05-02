@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 
 import { CATEGORIES } from '../../data/categories'
-import { useExpenses } from '../../context/expenses'
+import { useExpenses } from '../../context/useExpenses'
 import { totalsByCategory, totalsByDay, resolveCategory } from '../../utils/aggregate'
 import { ExpensesByCategoryChart } from './ExpensesByCategoryChart'
 import { ExpensesOverTimeChart } from './ExpensesOverTimeChart'

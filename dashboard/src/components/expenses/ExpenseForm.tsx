@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 
 import { CATEGORIES } from '../../data/categories'
-import { useExpenses } from '../../context/expenses'
+import { useExpenses } from '../../context/useExpenses'
 
 function todayLocalISODate() {
   const now = new Date()
