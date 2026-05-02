@@ -27,7 +27,7 @@ export function ChartsSection() {
     <section className="chartGrid">
       <div className="card">
         <div className="cardHeader">
-          <h2 className="cardTitle">Kategorie</h2>
+          <h2 className="cardTitle">Kategorie wydatków</h2>
           <div className="cardMeta">Suma wydatków</div>
         </div>
         <div className="chartBody">

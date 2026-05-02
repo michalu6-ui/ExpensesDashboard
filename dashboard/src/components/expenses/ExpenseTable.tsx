@@ -4,6 +4,7 @@ import { ExpenseRow } from './ExpenseRow'
 
 export function ExpenseTable() {
   const { state, dispatch } = useExpenses()
+  const helpId = 'expense-table-help'
 
   return (
     <section className="card">
@@ -11,7 +12,17 @@ export function ExpenseTable() {
         <h2 className="cardTitle">Wydatki</h2>
         <div className="cardMeta">{state.expenses.length} pozycji</div>
       </div>
-      <div className="tableWrap" role="region" aria-label="Tabela wydatków" tabIndex={0}>
+      <p id={helpId} className="srOnly">
+        Tabela jest przewijalna. Po wejściu fokusem użyj strzałek lub przewijania, aby zobaczyć
+        kolejne kolumny.
+      </p>
+      <div
+        className="tableWrap"
+        role="region"
+        aria-label="Tabela wydatków"
+        aria-describedby={helpId}
+        tabIndex={0}
+      >
         <table className="table">
           <thead>
             <tr>

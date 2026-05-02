@@ -20,6 +20,10 @@ type FormState = {
 
 export function ExpenseForm() {
   const { dispatch } = useExpenses()
+  const amountId = 'expense-amount'
+  const dateId = 'expense-date'
+  const categoryId = 'expense-category'
+  const noteId = 'expense-note'
 
   const initial: FormState = useMemo(
     () => ({
@@ -80,36 +84,48 @@ export function ExpenseForm() {
 
       <form className="form" onSubmit={onSubmit} noValidate>
         <div className="formRow">
-          <label className="field">
-            <span className="fieldLabel">Kwota</span>
+          <label className="field" htmlFor={amountId}>
+            <span className="fieldLabel">
+              Kwota <span aria-hidden="true">*</span>
+            </span>
             <input
+              id={amountId}
               className="input"
               inputMode="decimal"
               placeholder="np. 42,50"
               value={form.amount}
               onChange={(e) => onChange('amount', e.target.value)}
               aria-invalid={error ? true : undefined}
+              required
             />
           </label>
 
-          <label className="field">
-            <span className="fieldLabel">Data</span>
+          <label className="field" htmlFor={dateId}>
+            <span className="fieldLabel">
+              Data <span aria-hidden="true">*</span>
+            </span>
             <input
+              id={dateId}
               className="input"
               type="date"
               value={form.date}
               onChange={(e) => onChange('date', e.target.value)}
+              required
             />
           </label>
         </div>
 
         <div className="formRow">
-          <label className="field">
-            <span className="fieldLabel">Kategoria</span>
+          <label className="field" htmlFor={categoryId}>
+            <span className="fieldLabel">
+              Kategoria <span aria-hidden="true">*</span>
+            </span>
             <select
+              id={categoryId}
               className="input"
               value={form.categoryId}
               onChange={(e) => onChange('categoryId', e.target.value)}
+              required
             >
               {CATEGORIES.map((c) => (
                 <option key={c.id} value={c.id}>
@@ -119,9 +135,10 @@ export function ExpenseForm() {
             </select>
           </label>
 
-          <label className="field">
+          <label className="field" htmlFor={noteId}>
             <span className="fieldLabel">Opis</span>
             <input
+              id={noteId}
               className="input"
               placeholder="np. Lidl, bilet, abonament…"
               value={form.note}
