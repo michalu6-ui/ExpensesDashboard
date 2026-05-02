@@ -1,6 +1,6 @@
 import './chartSetup'
 
-import { Doughnut } from 'react-chartjs-2'
+import { Pie } from 'react-chartjs-2'
 
 export function ExpensesByCategoryChart({
   labels,
@@ -12,7 +12,7 @@ export function ExpensesByCategoryChart({
   colors: string[]
 }) {
   return (
-    <Doughnut
+    <Pie
       data={{
         labels,
         datasets: [
@@ -32,7 +32,6 @@ export function ExpensesByCategoryChart({
           legend: { position: 'bottom' },
           tooltip: { mode: 'index', intersect: false },
         },
-        cutout: '62%',
       }}
     />
   )
